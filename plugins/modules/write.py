@@ -78,7 +78,7 @@ okay:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.urls import urlparse
-from ansible_collections.odoo.api.plugins.module_utils import odoo_api
+from ansible_collections.odoo.api.plugins.module_utils import odoo_api, utils
 
 
 def run_module():
@@ -109,10 +109,10 @@ def run_module():
         try:
             okay = client.write(
                 module.params["model"],
-                module.params["ids"],
+                utils.check_ids(module.params["ids"]),
                 module.params["values"],
             )
-            result['okay'] = okay
+            result["okay"] = okay
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:
