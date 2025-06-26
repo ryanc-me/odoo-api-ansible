@@ -1,0 +1,9 @@
+---
+edit_on_github:
+  repository: ryanc-me/odoo-api-ansible
+  branch: main
+  path_prefix: ''
+
+extra_links:
+  - description: Report an issue
+    url: https://github.com/ryanc-me/odoo-api-ansible/issues/new

@@ -1,0 +1,16 @@
+namespace: odoo
+name: api
+version: 1.0.0
+readme: README.md
+authors:
+  - name: Ryan Cole (github.com/ryanc-me)
+description: blah
+license_file: LICENSE
+tags:
+  - odoo
+  - openerp
+  - jsonrpc
+  - xmlrpc
+repository: https://github.com/ryanc-me/odoo-api-ansible
+homepage: https://github.com/ryanc-me/odoo-api-ansible
+issues: https://github.com/ryanc-me/odoo-api-ansible/issues
