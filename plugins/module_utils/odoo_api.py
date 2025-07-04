@@ -235,7 +235,7 @@ class OdooClient:
 
     ### services/db
 
-    def database_create(
+    def db_create(
         self,
         master_password,
         db_name,
@@ -275,7 +275,7 @@ class OdooClient:
         ]
         return self._jsonrpc("db", "create_database", arguments)
 
-    def database_duplicate(
+    def db_duplicate(
         self, master_password, db_original_name, db_name, neutralize=False
     ):
         """Duplicate an existing Odoo database
@@ -294,7 +294,7 @@ class OdooClient:
         arguments = [master_password, db_original_name, db_name, neutralize]
         return self._jsonrpc("db", "duplicate_database", arguments)
 
-    def database_drop(self, master_password, db_name):
+    def db_drop(self, master_password, db_name):
         """Drop an Odoo database
 
         References:
@@ -309,7 +309,7 @@ class OdooClient:
         arguments = [master_password, db_name]
         return self._jsonrpc("db", "drop", arguments)
 
-    def database_dump(self, master_password, db_name, fmt):
+    def db_dump(self, master_password, db_name, fmt):
         """Dump an Odoo database
 
         References:
@@ -326,7 +326,7 @@ class OdooClient:
         # TODO: do we need to tell urllib about the streamed response?
         return self._jsonrpc("db", "dump", arguments, http_method="get")
 
-    def database_restore(self, master_password, db_name, data, copy=False):
+    def db_restore(self, master_password, db_name, data, copy=False):
         """Restore an Odoo database from a dump
 
         References:
@@ -344,7 +344,7 @@ class OdooClient:
         # TODO: do we need to do any special streaming here?
         return self._jsonrpc("db", "restore", arguments)
 
-    def database_rename(self, master_password, old_name, new_name):
+    def db_rename(self, master_password, old_name, new_name):
         """Rename an Odoo database
 
         References:
@@ -360,7 +360,7 @@ class OdooClient:
         arguments = [old_name, new_name]
         return self._jsonrpc("db", "rename", arguments)
 
-    def database_migrate(self, master_password, databases):
+    def db_migrate(self, master_password, databases):
         """Migrate an Odoo database to a new name
 
         This effectively triggers an upgrade on the 'base' module
@@ -377,7 +377,7 @@ class OdooClient:
         arguments = [master_password, databases]
         return self._jsonrpc("db", "migrate_databases", arguments)
 
-    def database_exists(self, master_password, db_name):
+    def db_exists(self, master_password, db_name):
         """Check if a database exists
 
         References:
@@ -395,7 +395,7 @@ class OdooClient:
         ]
         return self._jsonrpc("db", "db_exist", arguments)
 
-    def database_list(self, document=False):
+    def db_list(self, document=False):
         """List the databases available on an Odoo server
 
         References:
@@ -411,7 +411,7 @@ class OdooClient:
         ]
         return self._jsonrpc("db", "list", arguments)
 
-    def database_list_lang(self):
+    def db_list_lang(self):
         """List the available languages on an Odoo server
 
         References:
@@ -423,7 +423,7 @@ class OdooClient:
         """
         return self._jsonrpc("db", "list_lang", [])
 
-    def database_list_countries(self, master_password):
+    def db_list_countries(self, master_password):
         """List the available countries on an Odoo server
 
         References:
