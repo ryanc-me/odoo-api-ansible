@@ -123,7 +123,9 @@ def run_module():
                 limit=module.params["limit"],
                 order=module.params["order"],
             )
-            result['ids'] = record_ids
+            result.update({
+                "ids": record_ids
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:

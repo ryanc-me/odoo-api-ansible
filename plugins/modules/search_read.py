@@ -138,7 +138,9 @@ def run_module():
                 order=module.params["order"],
                 load=module.params["load"],
             )
-            result['data'] = data
+            result.update({
+                "data": data
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:

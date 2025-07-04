@@ -84,6 +84,9 @@ def run_module():
         )
         try:
             uid = client.authenticate()
+            result.update({
+                "uid": uid
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:

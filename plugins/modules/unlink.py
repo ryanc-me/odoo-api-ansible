@@ -103,7 +103,10 @@ def run_module():
                 module.params["model"],
                 utils.check_ids(module.params["ids"]),
             )
-            result["okay"] = okay
+            result.update({
+                "changed": True,
+                "okay": okay
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:

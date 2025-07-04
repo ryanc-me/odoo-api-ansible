@@ -115,7 +115,12 @@ def run_module():
                 module.params["method"],
                 module.params["args"],
             )
-            result['res'] = res
+            result.update({
+                # again, we can't know if something changed, so we'll play on
+                # the safe side
+                "changed": True,
+                "res": res
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:

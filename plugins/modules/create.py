@@ -105,7 +105,10 @@ def run_module():
                 module.params["model"],
                 module.params["values"],
             )
-            result["id"] = record_id
+            result.update({
+                "changed": True,
+                "id": record_id
+            })
         except odoo_api.OdooConnectionError as e:
             raise Exception("Could not connect") from e
         except odoo_api.OdooJsonRpcError as e:
