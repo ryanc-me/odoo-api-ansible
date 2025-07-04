@@ -4,9 +4,9 @@ Odoo JSON-RPC API bindings for Ansible
 
 ### Goals
 
-Implement all of the core JSON-RPC APIs (common, db, object), and offer all args/kwargs, where reasonably possible.
-
-This aims to be a relatively thin wrapper over the API.
+ * Implement all of the core JSON-RPC APIs (common, db, object), and offer all args/kwargs, where reasonably possible.
+ * No dependencies on Odoo API libraries (this module crafts its own JSON-RPC requests)
+ * Be a relatively thin wrapper over the API - not too much fluff.
 
 ### Install
 
