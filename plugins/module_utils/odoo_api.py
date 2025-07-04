@@ -63,11 +63,10 @@ class OdooClient:
     RPC_ID = 1
 
     def __init__(
-        self, url, database, password=False, username=False, uid=False, debug=False
+        self, url, database=False, password=False, username=False, uid=False, debug=False
     ):
-        if not uid and not username:
-            raise ValueError("Either uid or username must be provided")
-
+        if not url:
+            raise Exception("URL is required")
         self.url = url
         self.database = database
         self.password = password
